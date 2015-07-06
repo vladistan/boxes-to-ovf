@@ -19,14 +19,19 @@
             "type": "vagrant-vmware-ovf"
         }
     ],
-    "provisioners": [],
+    "provisioners": [
+        {
+            "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
+            "remote_path": "/tmp/script.bat",
+            "scripts": ["./scripts/windows/rsync.bat"],
+            "type": "shell"
+        }
+    ],
     "variables": {
         "version": "0.1",
         "vm": "{{ env `VM` }}",
         "vmx_name": "{{ env `VMX_NAME` }}",
         "shutdown_win" : "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
         "shutdown_lnx" : "echo 'vagrant' | sudo -S shutdown -P now"
-        
-      
     }
 }
