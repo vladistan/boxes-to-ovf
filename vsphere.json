@@ -2,7 +2,7 @@
     "builders": [
         {
             "name": "{{ user `vm` }}",
-            "shutdown_command" : "{{ user `shutdown_win` }}",
+            "shutdown_command" : "{{ user `shutdown_lnx` }}",
             "source_path": "{{ user `vmx_name` }}",
             "ssh_password": "vagrant",
             "ssh_username": "vagrant",

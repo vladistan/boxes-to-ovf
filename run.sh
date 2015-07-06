@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export VM=win7
+export VM=trusty64-min
 export BOX=vladistan/$VM
 
 vagrant init $BOX
