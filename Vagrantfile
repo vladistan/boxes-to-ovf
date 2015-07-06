@@ -10,12 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  #config.vm.box = "boxcutter/ubuntu1404"
-  config.vm.box = "vladistan/trusty64-min"
-  #config.vm.box = "vladistan/win7"
-  #config.vm.box = "vlad-win7"
-  #config.vm.box_url = "http://bubufiles4:8080/vagrant/windows_7_virtualbox.box"
-
+  config.vm.box = "vladistan/win7"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -51,18 +46,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-   config.vm.provider "vmware_fusion" do |v|
-      v.gui = true
-   end
-  
- #
-   config.vm.provider "virtualbox" do |vb|
+  # config.vm.provider "virtualbox" do |vb|
   #   # Don't boot with headless mode
-     vb.gui = true
+  #   vb.gui = true
   #
   #   # Use VBoxManage to customize the VM. For example to change memory:
   #   vb.customize ["modifyvm", :id, "--memory", "1024"]
-   end
+  # end
   #
   # View the documentation for the provider you're using for more
   # information on available options.
