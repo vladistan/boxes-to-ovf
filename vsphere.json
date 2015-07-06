@@ -21,8 +21,6 @@
     ],
     "provisioners": [],
     "variables": {
-        "atlas_name": "{{env `ATLAS_NAME`}}",
-        "atlas_username": "{{env `ATLAS_USERNAME`}}",
         "version": "0.1",
         "vmx_name": "{{ env `VMX_NAME` }}"
     }
