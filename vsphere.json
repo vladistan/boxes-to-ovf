@@ -1,14 +1,14 @@
 {
     "builders": [
         {
-            "name": "trusty64",
-            "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
+            "name": "{{ user `vm` }}",
+            "shutdown_command" : "{{ user `shutdown_win` }}",
             "source_path": "{{ user `vmx_name` }}",
             "ssh_password": "vagrant",
             "ssh_username": "vagrant",
             "ssh_wait_timeout": "60m",
             "type": "vmware-vmx",
-            "vm_name": "trusty64"
+            "vm_name": "{{ user `vm` }}"
         }
     ],
     "post-processors": [
@@ -22,6 +22,11 @@
     "provisioners": [],
     "variables": {
         "version": "0.1",
-        "vmx_name": "{{ env `VMX_NAME` }}"
+        "vm": "{{ env `VM` }}",
+        "vmx_name": "{{ env `VMX_NAME` }}",
+        "shutdown_win" : "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+        "shutdown_lnx" : "echo 'vagrant' | sudo -S shutdown -P now"
+        
+      
     }
 }
