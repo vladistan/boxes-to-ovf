@@ -1,0 +1,35 @@
+{
+    "builders": [
+        {
+            "name": "trusty64",
+            "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
+            "source_path": "{{ user `vmx_name` }}",
+            "ssh_password": "vagrant",
+            "ssh_username": "vagrant",
+            "ssh_wait_timeout": "60m",
+            "type": "vmware-vmx",
+            "vm_name": "trusty64"
+        }
+    ],
+    "post-processors": [
+        {"keep_input_artifact": false, "type": "vagrant"},
+        {
+            "compression_level": 9,
+            "output": "{{.BuildName}}-{{.Provider}}-{{user `version`}}.box",
+            "type": "vagrant-vmware-ovf"
+        },
+        {
+            "artifact": "{{user `atlas_username`}}/{{user `atlas_name`}}",
+            "artifact_type": "vagrant.box",
+            "metadata": {"provider": "vmware_ovf", "version": "0.0.1"},
+            "type": "atlas"
+        }
+    ],
+    "provisioners": [],
+    "variables": {
+        "atlas_name": "{{env `ATLAS_NAME`}}",
+        "atlas_username": "{{env `ATLAS_USERNAME`}}",
+        "version": "0.1",
+        "vmx_name": "{{ env `VMX_NAME` }}"
+    }
+}
