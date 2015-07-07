@@ -21,9 +21,17 @@
     ],
     "provisioners": [
         {
-            "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
-            "remote_path": "/tmp/script.bat",
-            "scripts": ["./scripts/windows/rsync.bat"],
+            "override": {
+                "virtualbox-iso": {
+                    "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'"
+                },
+                "vmware-iso": {
+                    "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'"
+                }
+            },
+            "scripts": [
+                "net-cleanup.sh"
+            ],
             "type": "shell"
         }
     ],

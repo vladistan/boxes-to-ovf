@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "vladistan/win7"
+  config.vm.box = "vladistan/centos66-64-min"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -61,6 +61,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # automatically installed. For example, configure the host as a
   # policy server and optionally a policy file to run:
   #
+
+  config.vm.provision "shell", :privileged => true, path: "net-cleanup.sh"
+
   # config.vm.provision "cfengine" do |cf|
   #   cf.am_policy_hub = true
   #   # cf.run_file = "motd.cf"
