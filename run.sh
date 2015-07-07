@@ -1,9 +1,8 @@
 #!/bin/bash
 
-export VM=win7
+export VM=win2008_r2
 export BOX=vladistan/$VM
 
-vagrant init vladistan/win7
 vagrant box update --provider vmware_fusion
 vagrant up --provider vmware_fusion
 vagrant halt
