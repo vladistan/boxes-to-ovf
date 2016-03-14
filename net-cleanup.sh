@@ -4,7 +4,9 @@
 distro="`rpm -qf --queryformat '%{NAME}' /etc/redhat-release | cut -f 1 -d '-'`" 
 rm -rf VBoxGuestAdditions_*.iso VBoxGuestAdditions_*.iso.?
 # Remove development and kernel source packages
-yum -y remove gcc cpp kernel-devel kernel-headers perl;
+yum -y remove gcc cpp kernel-devel kernel-headers;
+
+yum -y install perl
 rm -f /tmp/chef*rpm
 if [ "$distro" != 'redhat' ]; then
   yum -y clean all;
