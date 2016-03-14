@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export VM=centos66-64-min
+export VM=centos-66-x86_64-min
 export BOX=vladistan/$VM
 
 vagrant init $BOX
