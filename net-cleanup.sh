@@ -25,5 +25,10 @@ for ndev in `ls -1 /etc/sysconfig/network-scripts/ifcfg-*`; do
     fi
 done
 
+curl https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub > ~vagrant/.ssh/authorized_keys
+chmod og-rw ~vagrant/.ssh/authorized_keys
+chown vagrant.vagrant ~vagrant/.ssh/authorized_keys
+
+
 rm -f VBoxGuestAdditions_*.iso VBoxGuestAdditions_*.iso.?;
 rm -f /tmp/chef*rpm
