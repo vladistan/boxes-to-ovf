@@ -12,6 +12,7 @@ if [ "$distro" != 'redhat' ]; then
   yum -y clean all;
 fi
 
+
 # clean up redhat interface persistence
 rm -f /etc/udev/rules.d/70-persistent-net.rules
 mkdir -p /etc/udev/rules.d/70-persistent-net.rules;
@@ -32,3 +33,5 @@ chown vagrant.vagrant ~vagrant/.ssh/authorized_keys
 
 rm -f VBoxGuestAdditions_*.iso VBoxGuestAdditions_*.iso.?;
 rm -f /tmp/chef*rpm
+
+rm -rf /var/cache/yum

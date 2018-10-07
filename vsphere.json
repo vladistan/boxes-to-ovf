@@ -27,7 +27,7 @@
         }
     ],
     "variables": {
-        "version": "0.1",
+        "version": "0.0.1",
         "vm": "{{ env `VM` }}",
         "vmx_name": "{{ env `VMX_NAME` }}",
         "shutdown_win" : "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
